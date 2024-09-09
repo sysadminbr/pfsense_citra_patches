@@ -1,0 +1,10 @@
+--- /etc/inc/config.lib.inc.original    2023-09-11 19:51:16.804925000 -0300
++++ /etc/inc/config.lib.inc     2023-09-11 19:52:01.270590000 -0300
+@@ -675,6 +675,7 @@
+
+        if (config_get_path('syslog/logconfigchanges') != "disabled") {
+                log_error(gettext("Configuration Change") . ": {$config['revision']['description']}");
++               notify_all_remote(gettext("Configuration Change") . ": {$config['revision']['description']}");
+        }
+
+        cleanup_backupcache(true);
